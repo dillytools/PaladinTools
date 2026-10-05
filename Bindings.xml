@@ -1,0 +1,4 @@
+<Bindings>
+	<!-- SmartBlessing.lua: clicks the secure "best blessing" button. Names are set there. -->
+	<Binding name="CLICK PaladinToolsBlessButton:LeftButton" header="PALADINTOOLS" category="ADDONS"/>
+</Bindings>

@@ -1,0 +1,23 @@
+## Interface: 16001
+## Title: Paladin Tools
+## Notes: Paladin quality-of-life helpers. Flashes your seal before it expires, highlights Exorcism against Undead and Demons, glows Purify when a poison or disease can be cured, marks buffs you cast, and casts the best blessing for your target from one hotkey.|n|n|cffFFC700Slash command: /ptools, /paladintools|r
+## Author: Coby
+## Version: 0.1.0
+## Category: Custom
+## SavedVariables: PaladinToolsDB
+## IconTexture: Interface\Icons\Ability_ThunderBolt
+
+Core.lua
+ButtonEffects.lua
+SealTimer.lua
+ExorcismAlert.lua
+AuraContainerUtil.lua
+OwnBuffHighlight.lua
+NameplateBlessings.lua
+MinimapButton.lua
+PurifyAlert.lua
+BlessingPriorities.lua
+RoleDetection.lua
+BlessingPlanner.lua
+SmartBlessing.lua
+Settings.lua

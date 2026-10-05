@@ -1,0 +1,11 @@
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vs/
+.idea/
+.vscode/
+
+# Packaged builds and runtime output
+*.zip
+*.log
