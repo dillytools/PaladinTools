@@ -355,16 +355,16 @@ end
 -- Keeps the cache current from UNIT_AURA deltas: drop removed IDs, and learn
 -- ownership of added auras whose data happens to be readable.
 local function ApplyAuraUpdate(unit, updateInfo)
-    if not updateInfo then return end
+    if ns.IsSecret(updateInfo) or not updateInfo then return end
 
     local cache = ownerCache[unit]
     if cache then
-        for _, auraInstanceID in ipairs(updateInfo.removedAuraInstanceIDs or {}) do
+        for _, auraInstanceID in ipairs(ns.ReadableList(updateInfo.removedAuraInstanceIDs)) do
             if UsableID(auraInstanceID) then cache[auraInstanceID] = nil end
         end
     end
 
-    for _, aura in ipairs(updateInfo.addedAuras or {}) do
+    for _, aura in ipairs(ns.ReadableList(updateInfo.addedAuras)) do
         local result = OwnershipFromAura(aura)
         if result ~= nil and UsableID(aura.auraInstanceID) then CacheFor(unit)[aura.auraInstanceID] = result end
     end

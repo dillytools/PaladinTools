@@ -62,10 +62,10 @@ local function ApplyIncremental(unit, updateInfo)
     local set = curable[unit] or {}
     curable[unit] = set
 
-    for _, auraInstanceID in ipairs(updateInfo.removedAuraInstanceIDs or {}) do
+    for _, auraInstanceID in ipairs(ns.ReadableList(updateInfo.removedAuraInstanceIDs)) do
         if not ns.IsSecret(auraInstanceID) then set[auraInstanceID] = nil end
     end
-    for _, aura in ipairs(updateInfo.addedAuras or {}) do
+    for _, aura in ipairs(ns.ReadableList(updateInfo.addedAuras)) do
         local auraInstanceID = aura.auraInstanceID
         if IsDispellableByInstance(unit, auraInstanceID) then set[auraInstanceID] = true end
     end

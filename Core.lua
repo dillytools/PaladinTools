@@ -162,6 +162,15 @@ function ns.IsSecret(value)
     return issecretvalue ~= nil and issecretvalue(value)
 end
 
+local EMPTY_LIST = {}
+
+-- For ipairs over event payload lists: UNIT_AURA's added/removed lists are
+-- themselves secret while auras are restricted, and ipairs throws on those.
+function ns.ReadableList(list)
+    if ns.IsSecret(list) or list == nil then return EMPTY_LIST end
+    return list
+end
+
 -- True while aura data is secret; reading it from addon code throws.
 function ns.AurasAreSecret()
     return C_Secrets ~= nil and C_Secrets.ShouldAurasBeSecret ~= nil and C_Secrets.ShouldAurasBeSecret() == true
